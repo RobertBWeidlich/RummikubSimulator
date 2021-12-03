@@ -4,7 +4,7 @@ import sys
 import os
 
 """
-Basic data structures:
+Basic data structures for the game:
     tile:  tuple in the form ('red', 7)
     
     pool: list of tiles to be selected by players
@@ -15,8 +15,8 @@ Basic data structures:
     group: 3 or 4 tiles, same number, all different colors
     groups: list of groups
     
-    run: 3 or 4 tiles, same number, all different colors
-    runs: list of groups
+    run: 3 or more consecutive numbered tiles, same color
+    runs: list of runs 
     
     set: group or run
 """
@@ -56,7 +56,7 @@ runs = []
 
 
 def play():
-    print("pool: ")
+    print("initial pool: ")
     pp.pprint(pool)
 
     # 1. Randomly choose either Player A or B to start
@@ -64,10 +64,23 @@ def play():
     print(f'first player: {first_player}')
 
     # 2. Fill each player's racks with 13 tiles from the pool
+    # tile1 = pool.pop(0)
+    for i in range(0, 13):
+        print(i)
+        rack_a.append(pool.pop(0))
+        rack_b.append(pool.pop(0))
 
+    print("rack_a: ")
+    pp.pprint(rack_a)
+
+    print("rack_b: ")
+    pp.pprint(rack_b)
+
+    print("pool after each of 2 player gets 13 tiles: ")
+    pp.pprint(pool)
 
 
 if __name__ == '__main__':
     play()
 
-    sys
+    sys.exit(0)
